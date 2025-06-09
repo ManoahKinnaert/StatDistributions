@@ -1,5 +1,7 @@
 import tkinter as tk
 
+from .components import Button
+
 class Display(tk.Tk):
     def __init__(self):
         super().__init__()
@@ -15,4 +17,8 @@ class Display(tk.Tk):
         self.mainloop()
 
     def setup_ui(self):
-        pass 
+        self.footer_frame = tk.Frame(self, bg=self["background"])
+        self.footer_frame.pack(side="bottom", fill="x")
+
+        Button(self.footer_frame, text="Close", style="default", command=exit).pack(side="right", pady=5, padx=5)
+        Button(self.footer_frame, text="Help", style="default").pack(side="left", padx=5)
