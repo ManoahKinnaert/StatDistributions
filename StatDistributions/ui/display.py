@@ -1,6 +1,7 @@
 import tkinter as tk
 
-from .components import Button
+from .components import Button, TabView
+from .views import NormalDistView, BinomialDistView
 
 class Display(tk.Tk):
     def __init__(self):
@@ -17,7 +18,16 @@ class Display(tk.Tk):
         self.mainloop()
 
     def setup_ui(self):
-        self.footer_frame = tk.Frame(self, bg=self["background"])
+        self.tab_view = TabView(self, bg=self["background"])
+        self.tab_view.pack(fill="both", expand=True)
+
+        normal_dist_view = NormalDistView(self.tab_view, bg=self["background"])
+        self.tab_view.add_tab(normal_dist_view, title="Normal Distribution")
+        binom_dist_view = BinomialDistView(self.tab_view)
+        self.tab_view.add_tab(binom_dist_view, title="Binomial Distribution")
+
+
+        self.footer_frame = tk.Frame(self, bg="#1b1d21")
         self.footer_frame.pack(side="bottom", fill="x")
 
         Button(self.footer_frame, text="Close", style="default", command=exit).pack(side="right", pady=5, padx=5)

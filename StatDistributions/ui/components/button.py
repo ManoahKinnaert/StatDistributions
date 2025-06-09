@@ -29,8 +29,7 @@ class Button(tk.Canvas):
         "font": "Verdana 15 bold",
         "radius": 15
     }
-
-    def __init__(self, master, text, style="default", command=None, *args, **kwargs):
+    def __init__(self, master, text, style="default", vpadding=25, hpadding=20, command=None, *args, **kwargs):
         super().__init__(master, highlightthickness=0, bg=master["background"], *args, **kwargs)
         
         self.master = master 
@@ -39,6 +38,8 @@ class Button(tk.Canvas):
         self.style = getattr(self, style.upper())
         self.command = command 
         self.hover = False
+        self.vpadding = vpadding
+        self.hpadding = hpadding
         # setup the interface of the button
         self.setup_ui()
         # configure bindings
@@ -51,8 +52,8 @@ class Button(tk.Canvas):
         self.config(bg=self.master["background"])
         # create a rounded rectangle
         font = self.style["font"].split(" ")
-        w = int(font[1]) * len(self.text) + 20
-        h = int(font[1]) + 25
+        w = int(font[1]) * len(self.text) + self.hpadding
+        h = int(font[1]) + self.vpadding
         self.config(width=w + 1, height=h + 1)
         self.__round_rect(0, 0, w, h, fill=self.style["hover-bg" if self.hover else "bg"],
                           radius=self.style["radius"])
