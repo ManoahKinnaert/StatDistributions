@@ -23,7 +23,7 @@ class Display(tk.Tk):
 
         normal_dist_view = NormalDistView(self.tab_view, bg=self["background"])
         self.tab_view.add_tab(normal_dist_view, title="Normal Distribution")
-        binom_dist_view = BinomialDistView(self.tab_view)
+        binom_dist_view = BinomialDistView(self.tab_view, bg=self["background"])
         self.tab_view.add_tab(binom_dist_view, title="Binomial Distribution")
 
 
