@@ -74,7 +74,6 @@ class BinomialDistView(tk.Frame):
         # plot the cdf
         y = binom.cdf(k, n, p)
         self.cdf_plot.plot(k, y, "go", ms=8)
-        self.cdf_plot.hlines(y, 0, k, colors="g", lw=2, alpha=0.2)
         self.cdf_plot.set_title("CDF (Cumulative Distribution Function)")
         
         self.canvas1.draw()
