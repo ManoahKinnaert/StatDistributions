@@ -25,10 +25,10 @@ class NormalDistView(tk.Frame):
     
     def setup_ui(self):
         self.canvas = FigureCanvasTkAgg(self.figure, master=self)
-        self.canvas.get_tk_widget().pack(fill="both", expand=True)
+        self.canvas.get_tk_widget().pack(side="top", fill="both", expand=True)
 
         self.input_frame = tk.Frame(self, bg=self["background"])
-        self.input_frame.pack(side="bottom", fill="both", expand=True)
+        self.input_frame.pack(side="bottom", fill="both")
 
         self.mu_input_frame = tk.Frame(self.input_frame, bg=self["background"])
         self.mu_input_frame.grid(row=0, column=0)
