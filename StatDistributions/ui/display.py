@@ -38,4 +38,4 @@ class Display(tk.Tk):
     def show_help(self):
         self.help_view_showing = True 
         if self.help_view_showing:
-            HelpView(self)
+            HelpView(master=self)
