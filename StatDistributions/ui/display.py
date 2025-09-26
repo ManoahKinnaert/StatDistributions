@@ -1,7 +1,7 @@
 import tkinter as tk
 
 from .components import Button, TabView
-from .views import NormalDistView, BinomialDistView
+from .views import NormalDistView, BinomialDistView, HelpView
 
 class Display(tk.Tk):
     def __init__(self):
@@ -12,6 +12,8 @@ class Display(tk.Tk):
         self.geometry(f"{self.w}x{self.h}+{x}+{y}")
         self.title("Distributions")
         self.config(bg="black")
+
+        self.help_view_showing = False
 
         self.setup_ui()
 
@@ -31,4 +33,9 @@ class Display(tk.Tk):
         self.footer_frame.pack(side="bottom", fill="x")
 
         Button(self.footer_frame, text="Close", style="default", command=exit).pack(side="right", pady=5, padx=5)
-        Button(self.footer_frame, text="Help", style="default").pack(side="left", padx=5)
+        Button(self.footer_frame, text="Help", style="default", command=self.show_help).pack(side="left", padx=5)
+    
+    def show_help(self):
+        self.help_view_showing = True 
+        if self.help_view_showing:
+            HelpView(self)

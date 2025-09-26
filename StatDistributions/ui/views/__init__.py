@@ -1,2 +1,3 @@
 from .normal_dist_view import NormalDistView
 from .binomial_dist_view import BinomialDistView
+from .help_view import HelpView
