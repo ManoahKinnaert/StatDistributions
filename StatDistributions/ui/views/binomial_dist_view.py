@@ -59,8 +59,8 @@ class BinomialDistView(tk.Frame):
         n, p = None, None 
         try:
             n, p = self.n.get(), self.p.get()
-            self.pmf_plot.cla()
-            self.cdf_plot.cla()
+            self.pmf_plot.clear()
+            self.cdf_plot.clear()
         except:
             return 
         
