@@ -48,7 +48,7 @@ class NormalDistView(tk.Frame):
         mu, sigma = None, None
         try:
             mu, sigma = self.mu.get(), self.sigma.get() 
-            self.plot.cla()
+            self.plot.clear()
         except:
             return
 
