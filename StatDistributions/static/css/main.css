@@ -5,7 +5,7 @@
     --font-color-secondary: rgb(255, 255, 255);
     --bg-primary-color: rgb(250, 250, 250);
     --bg-secondary-color: rgb(220, 220, 220);
-    --bg-third-color: rgb(200, 200, 250);
+    --bg-third-color: rgb(200, 200, 205);
 
     --primary-shadow-color: rgba(10, 10, 10, 0.2);
     --secondary-shadow-color: rgba(10, 10, 10, 0.4);
@@ -69,4 +69,17 @@ html, body {
     background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
     color: var(--font-color-secondary);
     box-shadow: 0px 5px 5px 5px var(--primary-shadow-color);
+}
+
+.maincontent {
+    width: 99%;
+    height: 100%;
+    min-height: 700px;
+    margin-left: .5%;
+    margin-top: 20px;
+    border-radius: 10px;
+
+    background-color: var(--bg-third-color);
+    box-shadow: 0px 5px 5px 5px var(--secondary-shadow-color);
+
 }
