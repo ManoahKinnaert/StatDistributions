@@ -68,29 +68,29 @@ async function calculateNormal(mu, sigma) {
     );
 
     if (!response.ok) {
-        throw new Error(`Server returned ${response.status}`);
+        throw new Error(`Server returned ${response.status}`)
     }
-    return await response.json();
+    return await response.json()
 }
 
 async function updateNormalDistribution() {
-    const mu = muslider.value;
-    const sigma = sigmaslider.value;
+    const mu = muslider.value
+    const sigma = sigmaslider.value
 
-    muindicator.textContent = mu;
-    sigmaindicator.textContent = sigma;
+    muindicator.textContent = mu
+    sigmaindicator.textContent = sigma
 
     try {
-        const data = await calculateNormal(mu, sigma);
+        const data = await calculateNormal(mu, sigma)
         if (data) {
-            updateChartData(normaldist, data.x, data.y);
+            updateChartData(normaldist, data.x, data.y)
         }
     } catch (error) {
-        console.error("Could not calculate normal distribution:", error);
+        console.error("Could not calculate normal distribution:", error)
     }
 }
 
-muslider.addEventListener("input", updateNormalDistribution);
-sigmaslider.addEventListener("input", updateNormalDistribution);
+muslider.addEventListener("input", updateNormalDistribution)
+sigmaslider.addEventListener("input", updateNormalDistribution)
 
-updateNormalDistribution();
+updateNormalDistribution()

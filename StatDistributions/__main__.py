@@ -22,14 +22,14 @@ def main():
 def calculate_binom():
     # get the params
     n = int(request.args.get("n"))
-    p = int(request.args.get("p"))
+    p = float(request.args.get("p"))
     # calculations for plotting pmf
     k = np.arange(0, n + 1)
     y_pmf = binom.pmf(k, n, p)
     # calculations for plotting cdf 
     y_cdf = binom.cdf(k, n, p)
     # return a json response
-    return jsonify({"x": k, "y_pmf": y_pmf, "y_cdf": y_cdf})
+    return jsonify({"x": k.tolist(), "y_pmf": y_pmf.tolist(), "y_cdf": y_cdf.tolist()})
     
 @server.route("/normal_calc")
 def calculate_normal():
