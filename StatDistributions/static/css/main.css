@@ -1,0 +1,74 @@
+@import "variables.css";
+
+html, body {
+    margin: 0;
+    background-color: var(--bg-primary-color);
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.navbar {
+    width: 99%;
+    height: 70px;
+    margin-left: 0.5%;
+    margin-top: 10px;
+    overflow: hidden;
+    border-radius: 10px;
+
+    background-color: var(--bg-secondary-color);
+    box-shadow: 0px 5px 5px 5px var(--secondary-shadow-color);
+}
+
+.title-container {
+    float: left;
+    align-items: center;
+    margin-top: 5px;
+}
+
+.title-container h1 {
+    font-size: 20px;
+    margin-left: 10px;
+    opacity: 0.8;
+
+    /* Prevent selection */
+    -webkit-user-select: none; /* safari / webkit */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none;
+}
+
+.nav-btn-container {
+    float: right;
+    margin-top: 20px;
+}
+
+.nav-btn-container a {
+    display: inline;
+    text-decoration: none;
+    padding: 10px 20px 10px 20px;
+    font-size: 15px;
+    margin: 10px;
+    color: var(--font-color-primary);
+
+    /* Prevent selection */
+    -webkit-user-select: none; /* safari / webkit */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none;
+}
+
+.nav-btn-container a:hover {
+    border-radius: 10px;
+    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+    color: var(--font-color-secondary);
+    box-shadow: 0px 5px 5px 5px var(--primary-shadow-color);
+}
+
+.maincontent {
+    width: 99%;
+    height: 100%;
+    min-height: 500px;
+    margin-left: .5%;
+    margin-top: 20px;
+    border-radius: 10px;
+
+    background-color: var(--bg-third-color);
+    box-shadow: 0px 5px 5px 5px var(--secondary-shadow-color);
+}

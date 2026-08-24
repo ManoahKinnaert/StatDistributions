@@ -1,2 +1,4 @@
-matplotlib
+pywebview
+numpy
 scipy
+flask
