@@ -1,10 +1,13 @@
 from flask import Flask, render_template, redirect, request, jsonify
 import webview 
+from pathlib import Path 
 
 import numpy as np 
 from scipy.stats import norm, binom
 
-server = Flask(__name__, static_folder="./static", template_folder="./templates")
+static_path = Path(__file__).parent / "static"
+template_path = Path(__file__).parent / "templates"
+server = Flask(__name__, static_folder=static_path, template_folder=template_path)
 
 @server.route("/normalDist")
 def normal_dist():
