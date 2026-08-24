@@ -1,3 +1,72 @@
+:root {
+    --primary-color: rgb(200, 10, 240);
+    --secondary-color: rgb(140, 0, 255);
+    --font-color-primary: rgb(10, 10, 10);
+    --font-color-secondary: rgb(255, 255, 255);
+    --bg-primary-color: rgb(250, 250, 250);
+    --bg-secondary-color: rgb(220, 220, 220);
+    --bg-third-color: rgb(200, 200, 250);
+
+    --primary-shadow-color: rgba(10, 10, 10, 0.2);
+    --secondary-shadow-color: rgba(10, 10, 10, 0.4);
+}
+
 html, body {
     margin: 0;
+    background-color: var(--bg-primary-color);
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.navbar {
+    width: 99%;
+    height: 90px;
+    margin-left: 0.5%;
+    margin-top: 10px;
+    overflow: hidden;
+    border-radius: 10px;
+
+    background-color: var(--bg-secondary-color);
+    box-shadow: 0px 5px 5px 5px var(--secondary-shadow-color);
+}
+
+.navbar h1 {
+    font-size: 30px;
+    margin-left: 10px;
+    opacity: 0.8;
+
+    /* Prevent selection */
+    -webkit-user-select: none; /* safari / webkit */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none;
+}
+
+.title-container {
+    float: left;
+}
+
+.nav-btn-container {
+    float: right;
+
+    margin-top: 30px;
+}
+
+.nav-btn-container a {
+    display: inline;
+    text-decoration: none;
+    padding: 10px 20px 10px 20px;
+    font-size: 15px;
+    margin: 10px;
+    color: var(--font-color-primary);
+
+    /* Prevent selection */
+    -webkit-user-select: none; /* safari / webkit */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none;
+}
+
+.nav-btn-container a:hover {
+    border-radius: 10px;
+    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+    color: var(--font-color-secondary);
+    box-shadow: 0px 5px 5px 5px var(--primary-shadow-color);
 }

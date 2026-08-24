@@ -18,7 +18,7 @@ def launch_server_debug_mode():
 if __name__ == "__main__":
     import os
     try:
-        if os.environ["DEV"] is True:
+        if os.environ["DEV"]:
             launch_server_debug_mode() 
         else:
             launch_webview()
