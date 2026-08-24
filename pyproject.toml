@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "StatDistributions"
+version = "0.1.0"
+description = "A simple python app to visualize the normal and binomial distributions."
+requires-python = ">=3.13"
+dependencies = [
+    "pywebview",
+    "numpy",
+    "scipy",
+    "flask"
+]
+
+[tool.setuptools.packages.find]
+include = ["StatDistributions*"]
+
+[tool.setuptools.package-data]
+Scatter = ["static/css/*.css", "static/js/*.js", "templates/*.html"]
