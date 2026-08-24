@@ -1,11 +1,42 @@
 {% extends "template.html" %}
 {% block content %}
-<link rel="stylesheet" href="{{ url_for('static', filename='css/binomDist.css') }}">
-<div class="chart-container">
-
-</div>
-<div class="control-panel">
-
+<link rel="stylesheet" href="{{ url_for('static', filename='css/binomDist.css') }}">
+<div class="container">
+    <div class="chart-container">
+        <div class="chart">
+            <canvas id="pmf"></canvas>
+        </div>
+        <div class="chart">
+            <canvas id="cdf"></canvas>
+        </div>
+    </div>
+    <div class="parameters">
+        <h3>Edit distribution parameters:</h3>
+        <div class="p">
+            <label for="p-slider">p (chance)</label>
+            <input
+                type="range"
+                id="p-slider"
+                min="0"
+                max="1"
+                step="0.1"
+                value="0"
+            >
+            <span id="n-value">0</span>
+        </div>
+        <div class="n">
+            <label for="n-slider">n (attempts)</label>
+            <input
+                type="range"
+                id="n-slider"
+                min="0"
+                max="100"
+                step="1"
+                value="0"
+            >
+            <span id="n-value">0</span>
+        </div>
+    </div>
 </div>
 <script src="{{ url_for('static', filename='js/lib/chart.umd.js') }}"></script>
 <script src="{{ url_for('static', filename='js/binomDist.js') }}"></script>
