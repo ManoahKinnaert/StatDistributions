@@ -43,7 +43,7 @@ def calculate_normal():
     return jsonify({"x": x.tolist(), "y": y.tolist()})
 
 def launch_webview():
-    webview.create_window("StatDistributions", server)
+    webview.create_window("StatDistributions", server, width=1200, height=700, min_size=(1200, 700))
     webview.start() 
 
 def launch_server_debug_mode():
