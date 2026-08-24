@@ -1,22 +1,20 @@
 # StatDistributions
 A simple python app to visualize the normal and binomial distributions
 
-# Instructions / how to use
-1) Make a virtual environment
+## Installation / how to use
+1) From source:
 ```bash
-python -m venv venv && source venv/bin/activate
-```
-2) Ensure that you have the latest version of pip
-```bash
-pip install --upgrade pip
+git clone https://github.com/ManoahKinnaert/StatDistributions.git
+cd StatDistributions
+pip install -e .
 ```
 
-3) Install requirements
+2) Or directly:
 ```bash
-pip install -r requirements.txt
+pip install git+https://github.com/ManoahKinnaert/StatDistributions.git
 ```
 
-4) Run the app
+3) Run it:
 ```bash
-python StatDistributions
+python -m StatDistributions
 ```
