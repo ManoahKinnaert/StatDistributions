@@ -40,7 +40,7 @@ def calculate_normal():
     x = np.linspace(mu - 3 * sigma - .2, mu + 3 * sigma + .2, 100)
     y = norm.pdf(x, mu, sigma)
     # return a json response
-    return jsonify({"x": x, "y": y})
+    return jsonify({"x": x.tolist(), "y": y.tolist()})
 
 def launch_webview():
     webview.create_window("StatDistributions", server)

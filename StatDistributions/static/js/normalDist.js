@@ -1,3 +1,7 @@
+const muslider = document.getElementById("mu-slider")
+const muindicator = document.getElementById("mu-value")
+const sigmaslider = document.getElementById("sigma-slider")
+const sigmaindicator = document.getElementById("sigma-value")
 const ctx = document.getElementById("normaldist")
 
 const normaldist = new Chart(ctx, {
@@ -7,8 +11,8 @@ const normaldist = new Chart(ctx, {
         datasets: [{
             label: "Probability",
             data: [],
-            borderColor: "blue",
-            backgroundColor: "rgba(20, 20, 200, 0.2)",
+            borderColor: "rgb(90, 20, 250)",
+            backgroundColor: "rgba(90, 20, 250, 0.2)",
             fill: true,
         }]
     },
@@ -16,8 +20,13 @@ const normaldist = new Chart(ctx, {
     options: {
         responsive: true,
         maintainAspectRatio: false,
+        elements: {
+            point: {
+                radius: 0
+            }
+        },
         plugins: {
-            legend: { display: false},
+            legend: { display: false },
             title: {
                 display: true,
                 text: "Normal Distribution",
@@ -30,7 +39,7 @@ const normaldist = new Chart(ctx, {
                 type: "linear",
                 title: {
                     display: true,
-                    text: "Probability",
+                    text: "Probability density",
                     font: { size: 10 }
                 }
             },
@@ -48,18 +57,40 @@ const normaldist = new Chart(ctx, {
 })
 
 function updateChartData(chart, labels, newData) {
-    chart.data.labels = labels  
-    chart.data.datasets[0].data = newData  
+    chart.data.labels = labels
+    chart.data.datasets[0].data = newData
     chart.update()
 }
 
 async function calculateNormal(mu, sigma) {
-    const response = await fetch(`/normal_calc?mu=${mu}&sigma=${sigma}`);
+    const response = await fetch(
+        `/normal_calc?mu=${encodeURIComponent(mu)}&sigma=${encodeURIComponent(sigma)}`
+    );
 
     if (!response.ok) {
         throw new Error(`Server returned ${response.status}`);
     }
-
-    const data = await response.json();
-    return data;
+    return await response.json();
 }
+
+async function updateNormalDistribution() {
+    const mu = muslider.value;
+    const sigma = sigmaslider.value;
+
+    muindicator.textContent = mu;
+    sigmaindicator.textContent = sigma;
+
+    try {
+        const data = await calculateNormal(mu, sigma);
+        if (data) {
+            updateChartData(normaldist, data.x, data.y);
+        }
+    } catch (error) {
+        console.error("Could not calculate normal distribution:", error);
+    }
+}
+
+muslider.addEventListener("input", updateNormalDistribution);
+sigmaslider.addEventListener("input", updateNormalDistribution);
+
+updateNormalDistribution();
