@@ -1,12 +1,19 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, redirect
 import webview 
 
 server = Flask(__name__, static_folder="./static", template_folder="./templates")
 
+@server.route("/normalDist")
+def normal_dist():
+    return render_template("normalDist.html")
+
+@server.route("/binomDist")
+def binom_dist():
+    return render_template("binomDist.html")
+
 @server.route("/")
 def main():
-    return render_template("index.html")
-
+    return redirect("/normalDist")
 
 def launch_webview():
     webview.create_window("StatDistributions", server)
