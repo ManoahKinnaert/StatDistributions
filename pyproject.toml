@@ -14,8 +14,16 @@ dependencies = [
     "flask"
 ]
 
+[tool.setuptools]
+include-package-data = true
+
 [tool.setuptools.packages.find]
-include = ["StatDistributions*"]
+include = ["StatDistributions"]
 
 [tool.setuptools.package-data]
-StatDistributions = ["static/css/*.css", "static/js/*.js", "static/js/lib/*.umd.js", "templates/*.html"]
+StatDistributions = [
+    "static/css/*.css",
+    "static/js/*.js",
+    "static/js/lib/*.umd.js",
+    "templates/*.html"
+]
