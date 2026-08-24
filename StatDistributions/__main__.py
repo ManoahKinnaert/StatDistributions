@@ -7,6 +7,22 @@ server = Flask(__name__, static_folder="./static", template_folder="./templates"
 def main():
     return render_template("index.html")
 
-if __name__ == "__main__":
+
+def launch_webview():
     webview.create_window("StatDistributions", server)
-    webview.start()
+    webview.start() 
+
+def launch_server_debug_mode():
+    server.run(debug=True) 
+
+if __name__ == "__main__":
+    import os
+    try:
+        if os.environ["DEV"] is True:
+            launch_server_debug_mode() 
+        else:
+            launch_webview()
+    except KeyError:
+        launch_webview()
+
+    
