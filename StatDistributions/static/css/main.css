@@ -1,15 +1,4 @@
-:root {
-    --primary-color: rgb(200, 10, 240);
-    --secondary-color: rgb(140, 0, 255);
-    --font-color-primary: rgb(10, 10, 10);
-    --font-color-secondary: rgb(255, 255, 255);
-    --bg-primary-color: rgb(250, 250, 250);
-    --bg-secondary-color: rgb(220, 220, 220);
-    --bg-third-color: rgb(200, 200, 205);
-
-    --primary-shadow-color: rgba(10, 10, 10, 0.2);
-    --secondary-shadow-color: rgba(10, 10, 10, 0.4);
-}
+@import "variables.css";
 
 html, body {
     margin: 0;
