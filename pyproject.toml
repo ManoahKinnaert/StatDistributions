@@ -24,6 +24,6 @@ include = ["StatDistributions"]
 StatDistributions = [
     "static/css/*.css",
     "static/js/*.js",
-    "static/js/lib/*.umd.js",
+    "static/js/lib/chart.umd.js",
     "templates/*.html"
 ]
